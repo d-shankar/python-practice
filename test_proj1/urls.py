@@ -31,5 +31,6 @@ from test_proj1 import controllers
 
 urlpatterns = [
     re_path(r'^$', controllers.index, name='index'),
+    re_path('test_message/', controllers.index_message, name='test_message'),
     path('admin/', admin.site.urls),
 ]
