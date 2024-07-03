@@ -26,11 +26,12 @@ Including another URLconf
 
 
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from test_proj1 import controllers
 
 urlpatterns = [
     re_path(r'^$', controllers.index, name='index'),
     re_path('test_message/', controllers.index_message, name='test_message'),
+        re_path('test_url/', include('test_proj1.controller_urls')),
     path('admin/', admin.site.urls),
 ]

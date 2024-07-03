@@ -6,3 +6,6 @@ def index(request):
 
 def index_message(request):
     return HttpResponse('<h1>test message</h1>')
+
+def index_message2(request):
+    return HttpResponse('<h1>test message 2</h1>')
