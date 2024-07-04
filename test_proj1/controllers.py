@@ -9,3 +9,7 @@ def index_message(request):
 
 def index_message2(request):
     return HttpResponse('<h1>test message 2</h1>')
+
+def render_index(request):
+    my_name = {'inser_name' : 'shankar workspace'}
+    return render(request,'index.html',context=my_name) 
