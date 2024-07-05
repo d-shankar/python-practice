@@ -12,4 +12,4 @@ def index_message2(request):
 
 def render_index(request):
     my_name = {'inser_name' : 'shankar workspace'}
-    return render(request,'index.html',context=my_name) 
+    return render(request,'index/index.html',context=my_name) 
