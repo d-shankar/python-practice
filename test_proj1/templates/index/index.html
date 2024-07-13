@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Your Page Title</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href='{%static "css/app.css"%}'> <!-- Link to your CSS file -->
 </head>
 <body>
     <header>
@@ -35,7 +36,7 @@
             <!-- Additional content, like ads or links, goes here -->
         </aside>
     </main>
-
+    <img src ="{% static 'images/image1.png '%}" />
     <footer>
         <p>&copy; 2024 Your Name. All rights reserved.</p>
         <!-- Footer content, like contact info or social media links -->
