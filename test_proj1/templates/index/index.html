@@ -6,42 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Your Page Title</title>
-    <link rel="stylesheet" href='{%static "css/app.css"%}'> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href='{% static "css/app.css" %}'> <!-- Link to your CSS file -->
 </head>
 <body>
     <header>
-        <h1>{{inser_name}}</h1>
+        <h1>{{ insert_name }}</h1>
         <!-- Navigation bar, logo, etc. -->
     </header>
 
-    <nav>
-        <!-- Navigation links -->
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <section>
-            <h2>Section Title</h2>
-            <p>This is a paragraph in the main section.</p>
-            <!-- Main content goes here -->
-        </section>
-        <aside>
-            <h3>Aside Title</h3>
-            <p>This is a paragraph in the aside section.</p>
-            <!-- Additional content, like ads or links, goes here -->
-        </aside>
-    </main>
-    <img src ="{% static 'images/image1.png '%}" />
-    <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
-        <!-- Footer content, like contact info or social media links -->
-    </footer>
-
-    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+    <div>
+        {% if access_record %}
+            <table>
+                <tr>
+                    <th>Site Name</th>
+                    <th>Date Accessed</th>
+                </tr>
+                {% for acc in access_record %}
+                <tr>
+                    <td>{{ acc.name }}</td>
+                    <td>{{ acc.date }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <div>No Access Record</div>
+        {% endif %}
+    </div>
 </body>
 </html>

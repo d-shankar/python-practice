@@ -1,12 +1,14 @@
 import os
+# Set up Django settings
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'test_proj1.settings')  # Fixed settings module
+
 import django
+django.setup()
+
 import random
 from faker import Faker
 from model.practice import Topic, AccessRecord, Webpage  # Corrected import statement
 
-# Set up Django settings
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'test_proj1.settings')  # Fixed settings module
-django.setup()
 
 fakegen = Faker()
 topics = ['Social', 'Search', 'Networking', 'Astronomy']  # Fixed topic names
@@ -24,10 +26,10 @@ def populate(N=5):
         fake_date = fakegen.date()
         fake_name = fakegen.company()
 
-        webpg, created = Webpage.objects.get_or_create(topic=top, url=fake_url, name=fake_name)
-        acc_rec, created = AccessRecord.objects.get_or_create(name=webpg, date=fake_date)
+        webpg = Webpage.objects.get_or_create(topic=top, url=fake_url, name=fake_name)[0]
+        acc_rec = AccessRecord.objects.get_or_create(name=webpg, date=fake_date)[0]
 
 if __name__ == "__main__":  # Fixed main check
     print("populating scripts")
     populate()
-    print("populating complete")
+    print("populating complete")    
