@@ -31,6 +31,25 @@
         {% else %}
             <div>No Access Record</div>
         {% endif %}
+
+        {% if user %}
+            <table>
+                <tr>
+                    <th>User Name</th>
+                    <th>email</th>
+                    <th>dob</th>
+                </tr>
+                {% for us in user %}
+                <tr>
+                    <td>{{ us.name }}</td>
+                    <td>{{ us.date }}</td>
+                    <td>{{ us.date }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <div>No Access Record</div>
+        {% endif %}
     </div>
 </body>
 </html>
